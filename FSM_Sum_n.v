@@ -16,10 +16,10 @@ module FSM_Sum_n (
     input clk, 
     output LED_Yellow,
     output LED_Green,
-    output despencer;
+    output dispencer;
 );
 
-    reg [7:0] state, next_state;
+    // reg [7:0] state, next_state; Do we need to know each state?  
     reg [3:0] sum;
 
     always @(posedge clk) 
@@ -27,7 +27,7 @@ module FSM_Sum_n (
         // If the cost of specified coffee is reached, send signal to dispencer
         if (sum >= coffee_sel) 
         begin
-            despencer <= 1'b1;      // signal to despencer
+            dispencer <= 1'b1;      // signal to despencer
             LED_Yellow <= 1'b1;
             LED_Green <= 1'b0;
             sum <= 4'b0000;         // reset sum to O
@@ -36,7 +36,7 @@ module FSM_Sum_n (
             begin
                 // value of coin gets added to the sum reg
                 sum <= sum + coin;
-                despencer <= 1'b0;      // signal to despencer
+                dispencer <= 1'b0;      // signal to despencer
                 LED_Yellow <= 1'b0;     // turn off both LEDs when machine is being used
                 LED_Green <= 1'b0;
             end
