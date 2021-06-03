@@ -13,7 +13,7 @@ module Ordering_Machine (
     assign current_sum = 4'b0000;
 
     // accumulates value of coin and previous sum
-    Adder4 A0(coin_value, coffee_price, sum_result);
+    Adder4 A0(coin_value, coffee_price, current_sum);
 
     // if the accumulated sum is greater than coffee price, Dispencer will go high
     greater4 G0(current_sum, coffee_price, Dispencer);
