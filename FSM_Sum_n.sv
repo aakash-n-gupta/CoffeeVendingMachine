@@ -25,7 +25,7 @@ module FSM_Sum_n (
     always @(posedge clk) 
     begin
         // If the cost of specified coffee is reached, send signal to dispencer
-        if (sum >= coffee_sel) 
+        if (sum > coffee_sel) 
         begin
             dispencer <= 1'b1;      // signal to despencer
             LED_Yellow <= 1'b1;
