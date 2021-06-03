@@ -16,7 +16,7 @@ module FSM_Sum_n (
     input clk, 
     output LED_Yellow,
     output LED_Green,
-    output dispencer;
+    output dispencer
 );
 
     // reg [7:0] state, next_state; Do we need to know each state?  

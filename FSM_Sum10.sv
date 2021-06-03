@@ -2,9 +2,9 @@ module FSM_Sum10 (
     input coin[3:0], 
     input rst,
     input clk, 
-    output LED_Yellow,
-    output LED_Green,
-    output dispencer;
+    output reg LED_Yellow,
+    output reg LED_Green,
+    output reg dispencer
 );
 
     reg [7:0] state, next_state;
@@ -23,7 +23,7 @@ module FSM_Sum10 (
         else
             begin
                 // value of coin gets added to the sum reg
-                sum <= sum + coin;
+                sum <= sum + coin[[3:0];
                 dispencer <= 1'b0;      // signal to despencer
                 LED_Yellow <= 1'b0;     // turn off both LEDs when machine is being used
                 LED_Green <= 1'b0;
